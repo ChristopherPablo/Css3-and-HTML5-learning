@@ -22,6 +22,7 @@ body{
 	height: 240px;
 	position: absolute;
 	border-radius: 10px;
+	perspective: 600px;
 }
 
 .face{
@@ -29,12 +30,26 @@ body{
 	height: 100%;
 	position: absolute;
 	border-radius: 10px;
+	transition: all 1s;
+	backface-visibility: hidden;
 }
 
 .back{
 	background: url("../img/verso.jpg");
 }
 
-#card1{
+.back.flipped{
+	transform: rotateY(180deg);
+}
 
+.front{
+	transform: rotateY(-180deg);
+}
+
+.front.flipped{
+	transform: rotateY(0deg);
+}
+
+.card:hover{
+	box-shadow: 0 0 10px #AAA;
 }
