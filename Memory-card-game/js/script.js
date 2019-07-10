@@ -1,5 +1,7 @@
 (function(){
 	var imagens = [];
+	var flippedCards = [];
+	var modalGameover = document.querySelector("#modalGameOver");
 
 	for (var i = 0; i < 16; i++) {
 		var img = {
@@ -13,6 +15,7 @@
 	startGame();
 
 	function startGame(){
+		flippedCards = [];
 		imagens = randomSort(imagens);
 
 		var frontFaces = document.getElementsByClassName("front");
@@ -27,6 +30,9 @@
 			frontFaces[i].style.background = "url('" + imagens[i].src + "')";
 			frontFaces[i].setAttribute("id", imagens[i].id);
 		}
+
+		modalGameOver.style.zIndex = -2;
+		modalGameOver.removeEventListener("click", startGame, false);
 	}
 
 	function randomSort(oldArray){
@@ -42,9 +48,32 @@
 	}
 
 	function flipCard(){
-		var faces = this.getElementsByClassName("face");
-		faces[0].classList.toggle("flipped");
-		faces[1].classList.toggle("flipped");
+		if (flippedCards.length < 2) {
+			var faces = this.getElementsByClassName("face");
+
+			if (faces[0].classList.length > 2) {
+				return;
+			}
+
+			faces[0].classList.toggle("flipped");
+			faces[1].classList.toggle("flipped");
+
+			flippedCards.push(this);
+		}else{
+			flippedCards[0].childNodes[1].classList.toggle("flipped");
+			flippedCards[0].childNodes[3].classList.toggle("flipped");
+			flippedCards[1].childNodes[1].classList.toggle("flipped");
+			flippedCards[1].childNodes[3].classList.toggle("flipped");
+
+			flippedCards = [];
+		}
+
+		 function gameOver(){
+		 	modalGameOver.style.zIndex = 10;
+		 	modalGameOver.addEventListener("click", startGame, false);
+		 }
+
+		
 	}
 
 
