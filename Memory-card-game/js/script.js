@@ -13,6 +13,8 @@
 	startGame();
 
 	function startGame(){
+		imagens = randomSort(imagens);
+
 		var frontFaces = document.getElementsByClassName("front");
 
 		for (var i = 0; i < 16; i++) {
@@ -25,7 +27,19 @@
 			frontFaces[i].style.background = "url('" + imagens[i].src + "')";
 			frontFaces[i].setAttribute("id", imagens[i].id);
 		}
-	};
+	}
+
+	function randomSort(oldArray){
+		var newArray = [];
+
+		while(newArray.length !== oldArray.length){
+			var i = Math.floor(Math.random()*oldArray.length);
+			if (newArray.indexOf(oldArray[i]) < 0) {
+				newArray.push(oldArray[i]);
+			}
+		}
+		return newArray;
+	}
 
 	function flipCard(){
 		var faces = this.getElementsByClassName("face");
