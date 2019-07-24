@@ -120,6 +120,32 @@ h6{
 	padding: 0 0.8rem;
 }
 
+/*Showcase*/
+
+#showcase{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: no-repeat center center / cover;
+	background-image: url("../img/login-bg.jpg");
+	height: 100vh;
+}
+
+#showcase .showcase-text{
+	font-size: 3rem;
+	width: 100%;
+	color: #FFF;
+	margin-bottom: 1.5rem;
+}
+
+#showcase .secondary-btn{
+	width: 60%;
+	margin: auto;
+}
+
+/*Footer*/
+
 #main-footer{
 	color: #CCC;
 	text-align: center;
