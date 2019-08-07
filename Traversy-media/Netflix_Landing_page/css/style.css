@@ -67,10 +67,11 @@ img {
 
 .showcase-top img {
   width: 170px;
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-left: 0;
 }
 
 .showcase-top a {
@@ -83,11 +84,13 @@ img {
 .showcase-content {
   position: relative;
   z-index: 2;
+  width: 65%;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  align-items: center;
   margin-top: 9rem;
 }
 
@@ -113,6 +116,7 @@ img {
   background: var(--dark-color);
   padding-top: 1rem;
   border-bottom: 3px solid #3d3d3d;
+  border-right: none;
 }
 
 .tabs .container {
@@ -142,6 +146,21 @@ img {
   border-bottom: var(--primary-color) 4px solid;
 }
 
+/* Tab Content */
+
+.tab-content {
+  padding: 3rem 0;
+  background: #000;
+  color: #fff;
+}
+
+#tab-1-content .tab-1-content-inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
 /* Container */
 
 .container {
@@ -149,6 +168,26 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+}
+
+/* Text Styles */
+
+.text-xl {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.text-lg {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-dark {
+  color: #999;
 }
 
 /* Buttons */
@@ -163,6 +202,7 @@ img {
   border: none;
   cursor: pointer;
   margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
   outline: none;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
   border-radius: 2px;
